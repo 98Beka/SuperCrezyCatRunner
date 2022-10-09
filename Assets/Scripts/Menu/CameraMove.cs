@@ -14,36 +14,21 @@ public class CameraMove : MonoBehaviour
         _camera = GetComponent<Camera>();
     }
 
-    private void Update() {
-        /*if (_startGame)
-        {
-            _camera.transform.position = Vector3.Lerp(startPonint.position, endPoint.position, 0.005f );
-            _camera.transform.rotation = Quaternion.Lerp(startPonint.rotation, endPoint.rotation, 0.005f );
-        }
-
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            _startGame = true;
-        }*/
-    }
-
     public void StartGame()
     {
-        StartCoroutine(StartGame2());
+        StartCoroutine(MovingCamera());
     }
 
-    public IEnumerator StartGame2()
+    public IEnumerator MovingCamera()
     {
         while(true)
         {
-             _camera.transform.position = Vector3.Lerp(startPonint.position, endPoint.position, 0.05f );
+            _camera.transform.position = Vector3.Lerp(startPonint.position, endPoint.position, 0.05f );
             _camera.transform.rotation = Quaternion.Lerp(startPonint.rotation, endPoint.rotation, 0.05f );
-            yield return new WaitForSeconds(0.01f);
+            if( _camera.transform.position == startPonint.position)
+                break;
         }
-           
-        
         yield return null;
-       
     }
 
 }
