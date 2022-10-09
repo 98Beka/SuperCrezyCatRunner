@@ -19,7 +19,7 @@ public class Deleter : MonoBehaviour
 	{
 		
 		
-		Destroy(other);
+		print("gg");
 		
 	}
 }

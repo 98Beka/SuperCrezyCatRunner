@@ -17,6 +17,6 @@ public class TextureScroller : MonoBehaviour
 		offset += Time.deltaTime * speed;
 		if (offset > 1)
 			offset -= 1;
-		mesh.material.mainTextureOffset = new Vector2(0, offset);
+		mesh.material.mainTextureOffset = new Vector2(0, -offset);
 	}
 }

@@ -1,42 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject Prefab1;
-    public GameObject Prefab2;
-    public float spawn = 0.5f;
-
-    GameManager manager;
-    float TimeSpawn;
-    bool spawnPowerup = true;
-    
-
-    void Start()
+    [Header("Префаб который надо заспавнить:")]
+    [SerializeField] GameObject Object;
+    [Header("Нужные координаты:")]
+    [SerializeField] float posX;
+    [SerializeField] float posY;
+    [SerializeField] float posZ;
+    public void Spawn()
     {
-        manager = GetComponent<GameManager>();
-    }
-
-    void Update()
-    {
-        TimeSpawn += Time.deltaTime;
-        if (TimeSpawn > spawn)
-        {
-            GameObject temp;
-            if (spawnPowerup)
-                temp = Instantiate(Prefab1) as GameObject;
-            else
-                temp = Instantiate(Prefab2) as GameObject;
-
-            Vector3 position = temp.transform.position;
-
-            position.z = Random.Range(-3f, 3f);//Радиус
-            temp.transform.position = position;
-
-            Collidable col = temp.GetComponent<Collidable>();
-            col.manager = manager;
-
-            TimeSpawn = 0;
-            spawnPowerup = !spawnPowerup;
-        }
+        GameObject spawner;
+        spawner = Instantiate(Object, new Vector3(posX, posY, posZ), Quaternion.identity);// as GameObject;
+        Vector3 position = spawner.transform.position;
     }
 }
