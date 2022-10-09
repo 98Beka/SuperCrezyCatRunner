@@ -34,12 +34,14 @@ public class CameraMove : MonoBehaviour
 
     public IEnumerator StartGame2()
     {
-        for(int i = 0;i < 300 ; i++)
+        while(true)
         {
-            _camera.transform.position = Vector3.Lerp(startPonint.position, endPoint.position, 0.05f );
+             _camera.transform.position = Vector3.Lerp(startPonint.position, endPoint.position, 0.05f );
             _camera.transform.rotation = Quaternion.Lerp(startPonint.rotation, endPoint.rotation, 0.05f );
             yield return new WaitForSeconds(0.01f);
         }
+           
+        
         yield return null;
        
     }
