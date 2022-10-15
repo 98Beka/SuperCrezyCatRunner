@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class CameraMove : MonoBehaviour
 {
     [SerializeField] Transform endPoint;
     private Camera _camera;
     private bool _startGame = false;
 
-    private void Start() 
+    private void Start()
     {
         _camera = GetComponent<Camera>();
     }
@@ -22,8 +21,5 @@ public class CameraMove : MonoBehaviour
             if( _camera.transform.position == endPoint.position)
                 break;
         }
-
     }
-
-    
 }
