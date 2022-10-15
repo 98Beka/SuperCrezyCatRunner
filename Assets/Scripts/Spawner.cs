@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] float posX;
     [SerializeField] float posY;
     [SerializeField] float posZ;
-    public void Spawn()
+    public void Spawn(GameObject Object, float posX, float posY, float posZ)
     {
         GameObject spawner;
         spawner = Instantiate(Object, new Vector3(posX, posY, posZ), Quaternion.identity);// as GameObject;
